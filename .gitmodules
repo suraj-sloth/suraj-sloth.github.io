@@ -1,1 +1,4 @@
 
+[submodule "themes/etch"]
+	path = themes/etch
+	url = git@github.com:suraj-sloth/etch.git
