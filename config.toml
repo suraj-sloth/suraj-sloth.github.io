@@ -1,0 +1,46 @@
+baseURL = "https://suraj-sloth.github.io"
+title = "🌞 🦥 suraj_sloth"
+theme = "etch"
+languageCode = "en-US"
+enableInlineShortcodes = true
+pygmentsCodeFences = true
+pygmentsUseClasses = true
+
+[params]
+  description = "Personal Blog Site"
+  copyright = "Copyright © 2022 Suraj"
+  dark = "auto"
+  highlight = true
+
+[menu]
+  [[menu.main]]
+    identifier = "posts"
+    name = "posts"
+    title = "posts"
+    url = "/"
+    weight = 10
+
+  [[menu.main]]
+    identifier = "about"
+    name = "about"
+    title = "about"
+    url = "/about/"
+    weight = 20
+
+  [[menu.main]]
+    identifier = "resume"
+    name = "resume"
+    title = "resume"
+    url = "/suraj-resume.pdf"
+    weight = 30  
+
+[permalinks]
+  posts = "/:title/"
+
+[markup.goldmark.renderer]
+  # Allows HTML in Markdown
+  unsafe = true
+
+[taxonomies]
+  category = 'categories'
+  tag = 'tags'
