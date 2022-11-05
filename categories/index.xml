@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Categories on 🌞 🦥 suraj_sloth</title><link>https://suraj-sloth.github.io/categories/</link><description>Recent content in Categories on 🌞 🦥 suraj_sloth</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><atom:link href="https://suraj-sloth.github.io/categories/index.xml" rel="self" type="application/rss+xml"/><item><title>Winding up GSoC 2021</title><link>https://suraj-sloth.github.io/winding-up-gsoc-2021/</link><pubDate>Sun, 22 Aug 2021 00:00:00 +0000</pubDate><guid>https://suraj-sloth.github.io/winding-up-gsoc-2021/</guid><description>&lt;p>Here comes the ending of the 10 week GSoC program. This project has been a roller coaster ride for me. With initial weeks of struggling to understand the large codebase to this point.
+Week 9-10 revolved around testing all the changes done in the coding period. I had a virtual meet on the 7th of August with mentors. Thank you to them to organize a meet of their schedule,&lt;/p>
+&lt;p>The meet after many weeks was great. Mentors asked for my feedback about the current progress. I presented my work and discussed some possible bugs that I found while working on the project. One of which was the renaming of quotes not working. Thomas said that it was solved a few days ago but not in the master branch since my ongoing work was in a branch off the master.&lt;/p>
+&lt;p>We discussed how to rebase my branch from upstream and make it merge ready. I followed the instruction of mentors to demonstrate the working of kmymoney using sample data.&lt;/p>
+&lt;p>We found that the GNUCash plugin doesn&amp;rsquo;t seem to work after changes. It later worked(probably wasn&amp;rsquo;t working due to a linking error with my local alkimia installation). The equity price update doesn&amp;rsquo;t seem to work. I think it was because of the incomplete porting of webpricequote APIs since I commented on all the csvquote usage which is to be ported after the GSoC timeline.&lt;/p>
+&lt;center>&lt;img src="https://media2.giphy.com/media/7J4P7cUur2DlErijp3/giphy.gif" width="50%" height="50%">&lt;p>&lt;a href="https://giphy.com/gifs/manny-manny404-mannynotfound-7J4P7cUur2DlErijp3">via GIPHY&lt;/a>&lt;/p>&lt;/center>
+&lt;p>There is also a signal &lt;code>void updateAvailable(const QString &amp;amp;profile, const QString &amp;amp;name);&lt;/code> which is emitted by slot &lt;code>void slotUpdatesFound(const KNS3::Entry::List &amp;amp;updates)&lt;/code> to log updates for quote sources installed through KNS3 DownloadManager. It requires modification to work. This deliverable was not completed in the coding period. All the work is now in form of a merge request. After working on the csvquote, all the features will be workable.&lt;/p>
+&lt;p>I am also refactoring the code in my merge request as per the suggestions of mentors and maintainers.&lt;/p>
+&lt;p>My work can be found here : &lt;a href="https://invent.kde.org/surajsloth/alkimia/-/tree/gsoc21">Alkimia&lt;/a> and &lt;a href="https://invent.kde.org/surajsloth/kmymoney/-/tree/gsoc21">KMyMoney&lt;/a>. Both have been used to create a Merge Request for upstream repos.&lt;/p>
+&lt;h2 id="post-gsoc--">Post GSoC -&lt;/h2>
+&lt;p>The most trivial stuff will be to get the csvquote API ported to make features work like CSV field and update of quotes &lt;a href="https://bugs.kde.org/show_bug.cgi?id=439411">https://bugs.kde.org/show_bug.cgi?id=439411&lt;/a>.&lt;/p>
+&lt;p>If anyone wants to suggest something or have a discussion please reach out to me on suraj[dot]mahto49[at]gmail[dot]com or @suraj_sloth:kde.org in matrix.&lt;/p></description></item><item><title>GSoC 2021 KMyMoney - Week 8</title><link>https://suraj-sloth.github.io/gsoc-2021-kmymoney-week-8/</link><pubDate>Mon, 02 Aug 2021 00:00:00 +0000</pubDate><guid>https://suraj-sloth.github.io/gsoc-2021-kmymoney-week-8/</guid><description>&lt;p>Week 8 revolved around removing all the usages of webpricequote on the equity price update dialog source code. For people not much into finance, an article from &lt;a href="https://www.investopedia.com/terms/q/quote.asp">Investopedia&lt;/a> about quotes.
+&lt;br>
+I first replaced the WebPriceQuote constructors and their members of AlkOnlineQuoteSource. Replacing m_webIDBy with m_idSelector popped up error. After putting in a little effort I remembered that m_idSelector is the member of AlkOnlineQuoteSource::Private and I will have to use the getter(idSelector()) to use that member for an AlkOnlineQuoteSource object.
+&lt;br>&lt;/p>
+&lt;p>I ended up with compile errors which were due to an undefined reference to idSelector(). Since the definition and declaration of that function were already there pointing that it was maybe due to a linking error. I checked the symlink of libalkimia shared object(alkimia/build/bin/libalkimia5.so.8) that I created in kmymoney/build/lib to use my local modified version of alkimia. I still ended up with the same errors. After discussion in the mailing list, Ralf, Thomas and Ingo and their valuable suggestions, it was concluded that to make the &lt;strong>loader&lt;/strong> work according to my local alkimia in &lt;strong>build time&lt;/strong> I have to pass: &lt;code>-DCMAKE_PREFIX_PATH=&amp;lt;root-dir&amp;gt;/alkimia-install/usr/local&lt;/code> as an argument to CMake while building kmymoney where alkimia-install is my custom install location.&lt;/p>
+&lt;br>
+My work can be found here : [Alkimia](https://invent.kde.org/surajsloth/alkimia/-/tree/gsoc21) and [KMyMoney](https://invent.kde.org/surajsloth/kmymoney/-/tree/gsoc21).
+## Learnings -
+I got to know more about linkers and loaders and to use locally modified libs in a client application.
+&lt;h2 id="whats-next--">What&amp;rsquo;s next -&lt;/h2>
+&lt;p>Discussing about &lt;a href="https://bugs.kde.org/show_bug.cgi?id=439411">https://bugs.kde.org/show_bug.cgi?id=439411&lt;/a>.
+&lt;br>
+If anyone wants to suggest something or have a discussion please reach out to me on suraj[dot]mahto49[at]gmail[dot]com or @suraj_sloth:kde.org in matrix.&lt;/p></description></item><item><title>GSoC 2021 KMyMoney - Post First Evals to Week 7</title><link>https://suraj-sloth.github.io/gsoc-2021-kmymoney-post-first-evals-to-week-7/</link><pubDate>Mon, 26 Jul 2021 00:00:00 +0000</pubDate><guid>https://suraj-sloth.github.io/gsoc-2021-kmymoney-post-first-evals-to-week-7/</guid><description>&lt;br>
+&lt;p>The plan for the post first evals week was to complete the following tasks:&lt;/p>
+&lt;ul>
+&lt;li>Make changes as suggested by mentors on my last work.&lt;/li>
+&lt;li>Modify the AlkOnlineQuoteSource constructor for new members (m_idSelector and m_idNumber)&lt;/li>
+&lt;li>Write unit tests for the added members in the AlkOnlineQuoteSource.&lt;/li>
+&lt;/ul>
+&lt;br>
+I modified the code as suggested by my mentors that were related to coding conventions(according to C++, Qt and KDE).
+&lt;p>After adding the new members to the AlkOnlineQuoteSource constructor. I jumped into writing the unit tests. I realized that I haven&amp;rsquo;t added the new members in the function signature. After adding that, I build the files to check what all things break related to the constructor&amp;rsquo;s usage. They were :&lt;/p>
+&lt;ul>
+&lt;li>defaultQuoteSources() - The function having default quote sources. I modified those according to the new signature with quotes data from webpricequote.
+&lt;br>
+I proceeded to work on tests then and modified the test functions according to the new signature. I ran all the tests only to realize later that alkonlinequotesourcetest fails. It was due to the undeclared IdSelector variable. After fixing(assigning a default type) it was very relaxing to see all tests pass.&lt;/li>
+&lt;/ul>
+&lt;br>
+My work can be found here : [Alkimia](https://invent.kde.org/surajsloth/alkimia/-/tree/gsoc21) and [KMyMoney](https://invent.kde.org/surajsloth/kmymoney/-/tree/gsoc21).
+&lt;h2 id="learnings--">Learnings -&lt;/h2>
+&lt;p>I got to know more about the importance of coding conventions and writing tests.&lt;/p>
+&lt;h2 id="whats-next--">What&amp;rsquo;s next -&lt;/h2>
+&lt;p>This week will revolve around implementing the libalkimia changes in kmymoney. I am also looking at this &lt;a href="https://bugs.kde.org/show_bug.cgi?id=439411">https://bugs.kde.org/show_bug.cgi?id=439411&lt;/a> as suggested by Ralf.
+&lt;br>
+If anyone wants to suggest something or have a discussion please reach out to me on suraj[dot]mahto49[at]gmail[dot]com or @suraj_sloth:kde.org in matrix.&lt;/p></description></item><item><title>GSoC 2021 KMyMoney - Week 3, 4 and 5</title><link>https://suraj-sloth.github.io/gsoc-2021-kmymoney-week-3-4-and-5/</link><pubDate>Sun, 11 Jul 2021 00:00:00 +0000</pubDate><guid>https://suraj-sloth.github.io/gsoc-2021-kmymoney-week-3-4-and-5/</guid><description>&lt;p>The plan for the Week 3 and Week 4 was to complete the following tasks:&lt;/p>
+&lt;ul>
+&lt;li>Write unit tests for the debug support.&lt;/li>
+&lt;li>Work on the Online Quote support :
+&lt;ul>
+&lt;li>Use the member functions of AlkOnlineQuote class and AlkOnlineQuoteSource class.&lt;/li>
+&lt;li>Start the work on the “update of online quote support” feature.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>Week 5 was more into replacing the WebPriceQuote usage in KMyMoney and figuring out what APIs are needed in libalkimia.&lt;/p>
+&lt;p>I noticed that the online quotes that were in kmymoneyrc weren&amp;rsquo;t visible in the Online Quotes dialog. I figured out that and used the kmymoney profiles only. As also further pointed by Ralf, the onlinequoteseditor (in libalkimia) is intended to support multiple applications and therefore adds multiple profiles.&lt;/p>
+&lt;p>As unit tests were already written in libalkmia I run all the tests to check if something were wrong. All the tests passed successfully.&lt;/p>
+&lt;p>I started replacing WebPriceQuote implementation with that of Alkimia one by one. I managed to do so with the help of API documentation and previous KMyMoney 4.8 implementation. I found that some of the implementations were not present in libalkimia :&lt;/p>
+&lt;ul>
+&lt;li>AlkOnlineQuote::csvquote() as opposed to WebPriceQuote::csvquote()&lt;/li>
+&lt;/ul>
+&lt;p>For this Ralf pointed out that it uses the type MyMoneyStatement as the second parameter only known by kmymoney and therefore cannot be added to alkimia and Thomas suggested I move over it as the whole CSV import is needed to be reworked and is currently out of the scope of GSoC project.&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>I also tried to implement AlkOnlineQuote::setDate() I got a reference error which was due to m_fromDate and m_toDate in WebPriceQuote are only used in connection with CSV downloads and Thomas said me to skip that.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Thomas said me to add two more members to AlkOnlineQuoteSource::Private: , m_idNumber (QString) and m_idSelector (enum). For that, I implemented the m_idNumber in private and the idSelector enum in public since it was to be used in the getter and setter function outside private.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>Alkimia build was successful. I am also working in the modifications in AlkOnlineQuoteSource constructors with these new members and its tests.&lt;/p>
+&lt;p>My work can be found here : &lt;a href="https://invent.kde.org/surajsloth/alkimia/-/tree/gsoc21">Alkimia&lt;/a> and &lt;a href="https://invent.kde.org/surajsloth/kmymoney/-/tree/gsoc21">KMyMoney&lt;/a>.&lt;/p>
+&lt;h2 id="learnings--">Learnings -&lt;/h2>
+&lt;p>My object-oriented concepts improved and I learned how to implement and modify tests.&lt;/p>
+&lt;h2 id="whats-next--">What&amp;rsquo;s next -&lt;/h2>
+&lt;p>Phase 1 ended and there are now evaluations. The initial part of my project started slow since I was taking time to get acquainted more with the codebase. It is great to have such helpful mentors who help me with my queries as early as possible. I have planned to put on more time in my project as required. Work for the next work involves replacing the left WebPriceQuote APIs.
+&lt;br>
+If anyone wants to suggest something or have a discussion please reach out to me on suraj[dot]mahto49[at]gmail[dot]com or @suraj_sloth:kde.org in matrix.&lt;/p></description></item><item><title>GSoC 2021 KMyMoney - Week 1 and 2</title><link>https://suraj-sloth.github.io/gsoc-2021-kmymoney-week-1-and-2/</link><pubDate>Fri, 25 Jun 2021 00:00:00 +0000</pubDate><guid>https://suraj-sloth.github.io/gsoc-2021-kmymoney-week-1-and-2/</guid><description>&lt;p>The coding period began on June 7th 2021. I started using KDevelop for the project. The plan for the first phase was to complete the following tasks:&lt;/p>
+&lt;ul>
+&lt;li>Replace functions related to widgets in the existing codebase with that of the alkimiawidgets library.&lt;/li>
+&lt;li>Work on adding the debug support :
+&lt;ul>
+&lt;li>Add the UI entry for debug support in dialogs/settings/ksettingsonlinequotes.ui&lt;/li>
+&lt;li>Replace member functions of WebPriceQuote with that of AlkOnlineQuotesWidget and i.e AlkOnlineQuotesWidget::debugWidget() in dialogs/settings/kset1tingsonlinequotes.cpp(h).&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>A significant part of my project is to work on improvements. While starting the project I found that the above UI and the functionality part to create the online quotes page is already written in the libalkimia (master). After implementing the page I noticed a crash when there was some interaction done on the UI buttons or textboxes. By this, I initially thought that it may be due to some slot. Also, the online quotes data weren&amp;rsquo;t visible on the online quotes that were in the kmymoneyrc config file. I fetched the traceback through the Dr Konqi wizard. It was due to a segmentation fault in a slot. I traced the specified line of code in the log. It pointed me to the function which is used to read the kmymoneyrc file.&lt;/p>
+&lt;center>&lt;img src="https://media.giphy.com/media/l3q2Mdm0cRPLPcuGI/giphy.gif" width="55%" alt="giphy gif">&lt;/center>
+&lt;p>This was my first time working on a project with such a large codebase(although I worked in small bugs) and I wasn&amp;rsquo;t acquainted with a C++ debugger. I learnt to use the KDevelop debugger. I was stuck in that bug so I asked for directions from my mentors. &lt;a href="https://invent.kde.org/tbaumgart">Thomas&lt;/a> sir suggested running the program in the debugger mode and watch the variables and functions. I stepped in the functions associated with those to study those functions. My mentor (&lt;a href="https://invent.kde.org/tbaumgart">Thomas&lt;/a> sir) pointed that it is an error due to a null pointer with some intriguing question to look upon to find that bug.&lt;/p>
+&lt;p>After this long discussion and help from my mentor, I managed to solve the issue by assigning online quotes profiles when the list is empty before creating the page. Because that null pointer (in libalkimia) was not assigned any value in case of empty quotes profile list and that pointer is used in two functions.&lt;/p>
+&lt;center>&lt;img src="https://suraj-sloth.github.io/assets/gsoc21-week1n2.png" width="100%" alt="giphy gif">&lt;/center>
+&lt;p>My work can be found &lt;a href="https://invent.kde.org/surajsloth/kmymoney/-/tree/gsoc21">here&lt;/a>.&lt;/p>
+&lt;h2 id="whats-next--">What&amp;rsquo;s next -&lt;/h2>
+&lt;p>My week 3 and week 4 is planned for writing unit tests. But, in the community bonding meet, &lt;a href="https://invent.kde.org/habacker">Ralf&lt;/a> sir said to me that tests are already written. So, I will be running those tests and working on that if something is missing. Also, the &amp;ldquo;add quote source&amp;rdquo; button seems disabled that is need to be figured out.&lt;/p>
+&lt;p>If anyone wants to suggest something or have a discussion please reach out to me on suraj[dot]mahto49[at]gmail[dot]com or @suraj_sloth:kde.org in matrix.&lt;/p></description></item><item><title>Google Summer of Code 2021 - Community Bonding</title><link>https://suraj-sloth.github.io/google-summer-of-code-2021-community-bonding/</link><pubDate>Mon, 07 Jun 2021 00:00:00 +0000</pubDate><guid>https://suraj-sloth.github.io/google-summer-of-code-2021-community-bonding/</guid><description>&lt;img src="https://suraj-sloth.github.io/gsoc21-banner.png" width="100%">
+&lt;p>Hello everyone, I hope that you are safe and healthy.
+It was the 17th May 2021, the results were to be notified at 11:30 PM IST. My friend &lt;a href="https://invent.kde.org/anjani">Anjani&lt;/a> from the same college as mine, who is also a contributor to the KDE Community called me up 1 hour before the results. We both were very anxious. I checked my email at 11:26 PM, there was a mail that my &lt;a href="https://summerofcode.withgoogle.com/projects/#6042427250442240">project&lt;/a> was accepted in &lt;a href="https://summerofcode.withgoogle.com/">Google Summer of Code&lt;/a>. I called up Anjani since the results were to be notified at 11:30 PM IST and he hung up my call in panic. He called back, we were excited that both of our projects got accepted in KDE, one of the largest free software community that we are part of.&lt;/p>
+&lt;h2 id="about-my-project">About my Project:&lt;/h2>
+&lt;p>&lt;a href="https://kmymoney.org">KMyMoney&lt;/a> is a cross-platform personal finance tracking app. It uses C++, Qt as its core and the UI is done using QtWidgets. KMyMoney 4.8 is equipped with debug functions and extended by an online update of the quote sources. This was added to Alkimia 8. The main goal of the project is to add that as a feature to KMyMoney version 5. I have planned to add this support to version 5 of KMyMoney, as a replacement for existing functionality in KMyMoney (as was done with version 4.8). I will be working on the integration of the new functionalities from the Alkimia 8 library to improve the online price update of KMyMoney.&lt;/p>
+&lt;h3 id="mentors-thomas-baumgart-and-ralf-habacker">Mentors: Thomas Baumgart and Ralf Habacker&lt;/h3>
+&lt;h2 id="community-bonding">Community Bonding:&lt;/h2>
+&lt;p>I am glad to have such supporting mentors. I recall the covid cases were rising in India back then in May, Thomas sir sent me a touching base mail to discuss a merge request and asked about my health.&lt;/p>
+&lt;p>We had a KMyMoney kickoff virtual meet on 29th May. We got to know about each other and saw some faces behind the names and email addresses. It was great to interact with mentors, who are in Technology and Engineering for more than two decades and maintaining the KMyMoney codebase for more than one decade.&lt;/p>
+&lt;p>We walked through the proposed timeline and discussed what more things we will have to figure out while working on the project with some QnA.&lt;/p>
+&lt;p>I also completed one pending merge request:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://invent.kde.org/office/kmymoney/-/merge_requests/68">Remove hide closed accounts option from configuration settings&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>I also met my fellow students working on different GSoC projects under various orgs. They were from versatile technology domains. We discussed various topics related to tech and non-tech.&lt;/p>
+&lt;h2 id="coding-period">Coding Period:&lt;/h2>
+&lt;p>The coding period starts on 7th June. I am looking forward to a great summer ahead.&lt;/p>
+&lt;p>If anyone has any suggestions please reach out to me on:&lt;/p>
+&lt;ul>
+&lt;li>Matrix: @suraj_sloth:kde.org&lt;/li>
+&lt;li>e-mail : suraj.mahto49[at]gmail[dot]com &lt;br>
+I am also active in all the communication groups of KMyMoney i.e. IRC/matrix and telegram.
+&lt;br>
+I will be majorly working on the project in a fork repo.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;a href="https://invent.kde.org/surajsloth">KDE Invent Link&lt;/a>&lt;/p></description></item><item><title>Season of KDE 2021 - The start</title><link>https://suraj-sloth.github.io/season-of-kde-2021-the-start/</link><pubDate>Wed, 13 Jan 2021 00:00:00 +0000</pubDate><guid>https://suraj-sloth.github.io/season-of-kde-2021-the-start/</guid><description>&lt;img src="https://community.kde.org/images.community/thumb/7/79/Mascot_konqi-app-dev.png/651px-Mascot_konqi-app-dev.png" style="height: 15rem; width: auto; float:left; ">
+&lt;p>Hello KDE people, I am &lt;a href="https://invent.kde.org/users/surajsloth">Suraj&lt;/a> an undergraduate student majoring in Information Technology from India. I have been contributing to KDE Websites for quite a while. KDE Web has been undergoing major changes in the past few years. We have seen many sites being ported to JAM Stack i.e particularly static site generators such as Hugo and Jekyll.&lt;/p>
+&lt;p>Using static site generators sometimes are a great choice because it reduces server dependencies since the website rebuilds only when the site is updated. Also, updating is a lot easier when the content is written in markdown and simple data formats.&lt;/p>
+&lt;p>I will be working under &lt;a href="https://invent.kde.org/carlschwan">Carl Schwan&lt;/a> and &lt;a href="https://invent.kde.org/anujbansal">Anuj Bansal&lt;/a> to port the docs.kde.org site to Hugo. It uses a python script to fetch the newest version of the documentation from Git (for English) and Subversion (for other languages) and build HTML and PDF files from the DocBook sources. The custom python script is also to be refactored.&lt;/p>
+&lt;p>I look forward to this &lt;strong>kool&lt;/strong> and enthralling Season of KDE to improve the docs site. I will be posting regular updates throughout my proposed timeline. Please reach out to me on matrix ( suraj_sloth:kde.org ) if you have any suggestions.&lt;/p></description></item><item><title>Noob design guide!</title><link>https://suraj-sloth.github.io/noob-design-guide/</link><pubDate>Tue, 20 Oct 2020 00:00:00 +0000</pubDate><guid>https://suraj-sloth.github.io/noob-design-guide/</guid><description>&lt;h1 id="definitve-design-guide-for-designers">Definitve design guide for Designers&lt;/h1>
+&lt;p>Many people think designing basic social media graphics posters is not a cup of tea for everyone and only proffessional designers can do that.&lt;/p></description></item><item><title>Hello World from this blog!</title><link>https://suraj-sloth.github.io/hello-world-from-this-blog/</link><pubDate>Sun, 02 Feb 2020 00:00:00 +0000</pubDate><guid>https://suraj-sloth.github.io/hello-world-from-this-blog/</guid><description>&lt;blockquote>
+&lt;p>Technology was supposed to let us solve these problems. But technology never solves things by itself. At bottom, it requires people to sit down and build tools that solve them. Which, as long as programmers are all competing to create the world’s most popular timewaster, it doesn’t seem like anyone is going to do.
+&lt;strong>Aaron Swartz&lt;/strong>, The Boy Who Could Change the World&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>Hello Suraj owns this blog.&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-javascript" data-lang="javascript">&lt;span class="line">&lt;span class="cl">&lt;span class="kd">var&lt;/span> &lt;span class="nx">s&lt;/span>&lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;Hello to this world&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">alert&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">s&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;em>A &amp;ldquo;Hello, World!&amp;rdquo; program generally is very simple in most programming languages, and is often used to illustrate the basic syntax of a programming language. It is often the first program written by people learning to code.&lt;/em>&lt;/p>
+&lt;h1 id="the-idea">The idea&lt;/h1>
+&lt;pre tabindex="0">&lt;code>var blog = new Idea();
+&lt;/code>&lt;/pre>&lt;p>This blog is about posting my exploration in this expanding entropy of dynamic technology&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;strong>Less &lt;del>talk&lt;/del> more &lt;em>CODE&lt;/em>.&lt;/strong>&lt;/p>
+&lt;/blockquote>
+&lt;p>This site is made in jekyll and based on minimal console theme, from &lt;a href="https://github.com/b2a3e8/jekyll-theme-console">here&lt;/a>&lt;/p></description></item></channel></rss>
