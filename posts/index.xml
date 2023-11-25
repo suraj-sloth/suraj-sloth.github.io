@@ -1,4 +1,42 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on 🌞 🦥 suraj_sloth</title><link>https://suraj-sloth.github.io/posts/</link><description>Recent content in Posts on 🌞 🦥 suraj_sloth</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Sun, 22 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://suraj-sloth.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Winding up GSoC 2021</title><link>https://suraj-sloth.github.io/winding-up-gsoc-2021/</link><pubDate>Sun, 22 Aug 2021 00:00:00 +0000</pubDate><guid>https://suraj-sloth.github.io/winding-up-gsoc-2021/</guid><description>&lt;p>Here comes the ending of the 10 week GSoC program. This project has been a roller coaster ride for me. With initial weeks of struggling to understand the large codebase to this point.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on 🌞 🦥 suraj_sloth</title><link>https://suraj-sloth.github.io/posts/</link><description>Recent content in Posts on 🌞 🦥 suraj_sloth</description><generator>Hugo -- gohugo.io</generator><language>en-US</language><lastBuildDate>Sun, 05 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://suraj-sloth.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Sustainability - How Technology and FOSS Combat E-waste</title><link>https://suraj-sloth.github.io/sustainability-how-technology-and-foss-combat-e-waste/</link><pubDate>Sun, 05 Nov 2023 00:00:00 +0000</pubDate><guid>https://suraj-sloth.github.io/sustainability-how-technology-and-foss-combat-e-waste/</guid><description>&lt;p>What is the frequency of a smartphone purchase by a person? 2 years? 3 years? 4 years?&lt;/p>
+&lt;p>We are talking about handheld devices in general. With the increase in affordability and consumerism, Electronic waste, or e-waste, is a growing problem that poses a significant threat to the environment and human health. Technology, including open technologies, can play a crucial role in addressing this issue by promoting sustainability.&lt;/p>
+&lt;p>During the Debian Conference 2023 [0] held in September at Kochi (DebConf &amp;lsquo;23), I presented a compelling tech use case [0]. I showcased how repurposing old smartphones to create a clustered system harnesses their computational power for specific applications, providing an innovative solution to both reduce e-waste and utilize resources effectively.&lt;/p>
+&lt;p>&lt;img src="https://suraj-sloth.github.io/blog-vis-25-11-23.png" alt="smartphone devices waste visualization">
+&lt;em>Smartphone devices waste visualization and comparison with the ISS&lt;/em>&lt;/p>
+&lt;h3 id="the-pressing-need-for-sustainable-e-waste-management">The Pressing Need for Sustainable E-waste Management&lt;/h3>
+&lt;p>The world grapples with a growing e-waste crisis, discarding an alarming 53.6 million metric tons annually, with only 17.4% being formally collected and recycled [1]. This alarming trend poses significant environmental and health hazards, particularly in developing nations. Moreover, e-waste contains hazardous substances, further endangering human well-being and the environment.&lt;/p>
+&lt;h3 id="technology-as-a-catalyst-for-e-waste-sustainability">Technology as a Catalyst for E-waste Sustainability&lt;/h3>
+&lt;p>Embracing technology presents a crucial opportunity to achieve sustainable e-waste management. Open technologies and Open-source software emerges as a powerful tool in promoting sustainability and combating e-waste. By democratizing access through freely available software, these initiatives reduce technological costs, bridge the global digital divide, and foster economic development. Furthermore, they open doors to eco-conscious projects that embrace sustainability [3].&lt;/p>
+&lt;h3 id="policy--strategies-that-can-enable-e-waste-sustainability-via-technology-and-open-technology">Policy Strategies that can Enable E-waste Sustainability via Technology and Open Technology&lt;/h3>
+&lt;p>Realizing e-waste sustainability demands a multifaceted approach. Policy strategies that harness technology and open-source software include:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>Developing Sustainable Economic Models&lt;/strong>: Creating economic models sustains the development and maintenance of open-source software [6].&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Designing for Repairability&lt;/strong>: Crafting electronics for easy repair extends their lifespan, aided by open-source software&amp;rsquo;s creation of repair manuals and tools [4].&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Promoting Open Standards&lt;/strong>: Open-source software facilitates the development of standards promoting device interoperability, reducing e-waste [2].&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Collaborating with Organizations associated with the 17 SDGs&lt;/strong>: Partnerships between open-source projects, tech companies, and environmental groups spawn eco-friendly initiatives fostering sustainability [3].&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Harnessing a Circular Economy [7] for ICT Equipment contradistinction to the traditional linear economy&lt;/strong>: A circular economy for ICT devices mitigates e-waste by using the device to its best capacity for a good value proposition.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>Continuing this journey, I am iterating on that solution and will be presenting about the same at the upcoming GNOME Asia Summit 2023, set to happen in December at Kathmandu. This platform will further enable the exploration and improvement of this impactful approach to combat e-waste.&lt;/p>
+&lt;ul>
+&lt;li>[0] &lt;a href="https://debconf23.debconf.org/talks/104-forming-a-ssh-cluster-using-old-smartphones-mobian-and-other-oses-sustainable-computing/">DebConf &amp;lsquo;23 Talk by me&lt;/a>&lt;/li>
+&lt;li>[1] &lt;a href="https://www.crainsnewyork.com/op-ed/op-ed-northwells-expansion-bitter-pill-community">CrainsNewYork&lt;/a>&lt;/li>
+&lt;li>[2] &lt;a href="https://www.bostonglobe.com/2021/12/15/opinion/expand-supreme-court/">BostonGlobe&lt;/a>&lt;/li>
+&lt;li>[3] &lt;a href="https://www.njspotlightnews.org/2023/09/op-ed-expanded-ice-family-removal-program-in-new-jersey-is-an-outrage/">NJSpotlightNews&lt;/a>&lt;/li>
+&lt;li>[4] &lt;a href="https://www.cnbc.com/2021/08/24/op-ed-nyc-schools-expand-mental-health-support-for-students-as-pandemic-leaves-kids-in-crisis.html">CNBC&lt;/a>&lt;/li>
+&lt;li>[5] &lt;a href="https://www.theopedproject.org/resources">TheOpEdProject&lt;/a>&lt;/li>
+&lt;li>[6] &lt;a href="https://useoftechnology.com/what-is-technology/">UseOfTechnology&lt;/a>&lt;/li>
+&lt;li>[7] &lt;a href="https://en.wikipedia.org/wiki/Circular_economy">Circular Economy&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Winding up GSoC 2021</title><link>https://suraj-sloth.github.io/winding-up-gsoc-2021/</link><pubDate>Sun, 22 Aug 2021 00:00:00 +0000</pubDate><guid>https://suraj-sloth.github.io/winding-up-gsoc-2021/</guid><description>&lt;p>Here comes the ending of the 10 week GSoC program. This project has been a roller coaster ride for me. With initial weeks of struggling to understand the large codebase to this point.
 Week 9-10 revolved around testing all the changes done in the coding period. I had a virtual meet on the 7th of August with mentors. Thank you to them to organize a meet of their schedule,&lt;/p>
 &lt;p>The meet after many weeks was great. Mentors asked for my feedback about the current progress. I presented my work and discussed some possible bugs that I found while working on the project. One of which was the renaming of quotes not working. Thomas said that it was solved a few days ago but not in the master branch since my ongoing work was in a branch off the master.&lt;/p>
 &lt;p>We discussed how to rebase my branch from upstream and make it merge ready. I followed the instruction of mentors to demonstrate the working of kmymoney using sample data.&lt;/p>
