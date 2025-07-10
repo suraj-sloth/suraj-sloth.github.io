@@ -28,11 +28,18 @@ pygmentsUseClasses = true
     weight = 20
 
   [[menu.main]]
+    identifier = "bookshelf"
+    name = "bookshelf"
+    title = "bookshelf"
+    url = "/bookshelf/"
+    weight = 30
+
+  [[menu.main]]
     identifier = "resume"
     name = "resume"
     title = "resume"
     url = "/suraj-resume.pdf"
-    weight = 30  
+    weight = 40  
 
 [permalinks]
   posts = "/:title/"

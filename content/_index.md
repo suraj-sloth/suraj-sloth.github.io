@@ -1,7 +1,11 @@
 +++
 title = "🌞 🦥 sloth's home"
 +++
-Hello I am Suraj. I am a Bachelor of Technology graduate with majors in Information Technology. I love to explore many things from tech, design, product to running. Currently I work as an engineer in one of the SRE teams in my organization. I have been part of open source programs like GSoC and SoK.I used to contribute to KDE Community(<a href="https://kde.org">kde.org</a>). Have a look at my blogs related to all my experiences. The blog was previously managed using Jekyll.
+Hello I am Suraj. I'm a B.Tech graduate in Information Technology with a curious mind that roams freely across tech, design, product, health, and finance. I enjoy diving deep into non-fiction books, mostly around economics, finance, spirituality, and emerging technologies, anything that helps me connect the dots across disciplines.
+
+Professionally, I’ve worn multiple hats across SRE and SDE teams, working in fintech, decentralized finance, and traditional financial systems. Along the way, I’ve contributed to the open-source world through programs like Google Summer of Code (GSoC) and Season of KDE (SoK), where I got to build, break, and learn in public.
+
+I document my learnings, experiments, and experiences on my blog previously powered by Jekyll, where I reflect on everything from systems and code to books and beyond.
 
 <center>
 <img src="https://cdn.pixabay.com/photo/2019/05/13/18/46/sloth-4200640_960_720.jpg" height="200em" width="auto">
